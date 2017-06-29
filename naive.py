@@ -130,14 +130,14 @@ if __name__=="__main__":
 	prob_legit = num_legit/(num_spam + num_legit)
 	prob_spam = 1 - prob_legit
 	
-	email_one_legit = calc_prob(0,spam_flags, data_email_one)
-	email_one_spam = calc_prob(1,spam_flags, data_email_one)
+	email_one_legit = prob_legit * calc_prob(0,spam_flags, data_email_one)
+	email_one_spam = prob_spam * calc_prob(1,spam_flags, data_email_one)
 	
-	email_two_legit = calc_prob(0,spam_flags, data_email_two)
-	email_two_spam = calc_prob(1,spam_flags, data_email_two)
+	email_two_legit = prob_legit * calc_prob(0,spam_flags, data_email_two)
+	email_two_spam = prob_spam * calc_prob(1,spam_flags, data_email_two)
 	
-	email_three_legit = calc_prob(0,spam_flags, data_email_three)
-	email_three_spam = calc_prob(1,spam_flags, data_email_three)
+	email_three_legit = prob_legit * calc_prob(0,spam_flags, data_email_three)
+	email_three_spam = prob_spam * calc_prob(1,spam_flags, data_email_three)
 	
 	prob_one_legit = email_one_legit / (email_one_legit + email_one_spam)
 	prob_one_spam = 1 - prob_one_legit
